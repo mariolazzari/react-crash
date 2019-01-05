@@ -14,7 +14,7 @@ class TodoItem extends Component {
   };
 
   render() {
-    const { markComplete } = this.props;
+    const { markComplete, deleteTodo } = this.props;
     const { id, title } = this.props.todo;
 
     return (
@@ -22,11 +22,24 @@ class TodoItem extends Component {
         <p>
           <input type="checkbox" onChange={() => markComplete(id)} />
           {title}
+          <button style={buttonStyle} onClick={() => deleteTodo(id)}>
+            x
+          </button>
         </p>
       </div>
     );
   }
 }
+
+const buttonStyle = {
+  background: "#ff0000",
+  color: "#fff",
+  border: "none",
+  padding: "5px 10px",
+  borderRadius: "50%",
+  cursor: "pointer",
+  float: "right"
+};
 
 TodoItem.propsType = {
   todo: PropTypes.object.isRequired

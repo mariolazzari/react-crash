@@ -5,12 +5,17 @@ import TodoItem from "./TodoItem";
 
 class Todos extends Component {
   render() {
-    const { todos, markComplete } = this.props;
+    const { todos, markComplete, deleteTodo } = this.props;
 
     return (
       <div>
         {todos.map(todo => (
-          <TodoItem key={todo.id} todo={todo} markComplete={markComplete} />
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            markComplete={markComplete}
+            deleteTodo={deleteTodo}
+          />
         ))}
       </div>
     );
